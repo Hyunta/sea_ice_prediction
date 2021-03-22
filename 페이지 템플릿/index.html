@@ -66,9 +66,9 @@
   해빙농도에 대해 예측하여 기후재앙의 심각성을 재고할 수 있다</p>
           </p>
           <ul>
-            <li>Clickable nav links that smooth scroll to page sections</li>
-            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
+            <li>북극은 지구에서 그 어느 지역보다도 온난화가 가장 빠르게 진행되고 있는 지역</li>
+            <li>매년 여름철 북극 빙량은 급격히 줄어든다.</li>
+            <li>2020년 9월의 북극 빙량 최저치는 374만㎢로 위성 관측이 시작된 1979년 이래 두 번째로 400만㎢선이 무너져서 2012년의 다음으로 관측 사상 빙량 최저순위 2위를 기록</li>
             <li>Minimal custom CSS so you are free to explore your own unique design options</li>
           </ul>
         </div>
@@ -81,7 +81,31 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2>AWS Ubuntu Apache를 통해 배포</h2>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+          <h3><br>Apache vs Nginx</h3>
+          <p class="lead">
+            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlFdAx%2FbtqxEP7wfLv%2F7zSjsmR1KQ6iq0j7DCAqOK%2Fimg.png" width="120%" style="display: block; margin: 0 auto;">
+            <h4>Apache<br></h4>
+            <p>스레드/ 프로세스 기반 구조, 클라이언트 요청 하나당 스레드 하나가 처리하는 구조.</p>
+            <h5><br>1.PreFork 방식</h5>
+              <img src = "https://taetaetae.github.io/images/apache-vs-nginx/prefork.gif">
+              <ul>
+                <br>
+                <li>Client 요청에 대해 apache 자식 프로세스를 생성하여 처리합니다.</li>
+                <li>요청이 많을 경우 Process 를 생성하여 처리합니다. 이 방식은 Apache 설치시 default 로 설정되어 있습니다.</li>
+                <li>하나의 자식프로세스당 하나의 스레드 를 갖습니다. (최대 1024개)</li>
+                <li>스레드간 메모리 공유를 하지 않습니다. 이 방식은 독립적이기에 안정적인 반면, 메모리 소모가 크다는 단점이 있습니다.</li>
+              </ul>
+            <h5><br>2.Worker MPM 방식</h5>
+              <img src = "https://taetaetae.github.io/images/apache-vs-nginx/worker.gif">
+              <ul>
+                <br>
+                <li>Prefork 보다 메모리 사용량이 적고 동시접속자가 많은 사이트에 적합합니다. 각 프로세스의 스레드를 생성해 처리하는 구조입니다.</li>
+                <li>스레드 간의 메모리 공유가 가능합니다.</li>
+                <li>프로세스 당 최대 64개의 스레드처리가 가능하며, 각 스레드는 하나의 연결만을 부여받습니다.</li>
+              </ul>
+            <h4>Nginx</h4>
+            <p>Apache의 동시 접속자수가 1만명이 넘어갈 때의 문제점(C10K Problem)을 해결하기 위해 만들어진 비동기 `Event-Driven ` 구조의 웹서버 소프트웨어 사용이 매우 심플하고 규모가 작은 서비스이면서 정적 데이터 처리가 많은 서비스에 적합</p>
+          </p>
         </div>
       </div>
     </div>
